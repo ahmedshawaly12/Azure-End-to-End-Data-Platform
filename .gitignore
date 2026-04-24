@@ -1,0 +1,129 @@
+
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.*
+!.env.example
+*.env
+secrets/
+credentials/
+*.key
+*.pem
+*.pfx
+*.p12
+
+# ========================
+# Azure
+# ========================
+.azure/
+azureauth.json
+*.publishsettings
+local.settings.json
+appsettings.*.json
+!appsettings.json
+
+
+# Azure Functions
+bin/
+obj/
+.python_packages/
+
+# ========================
+# FastAPI / Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+*.coveragerc
+coverage.xml
+
+# mypy
+.mypy_cache/
+.dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# ========================
+# Data & Storage
+# ========================
+*.csv
+*.parquet
+*.avro
+*.orc
+*.json.gz
+data/raw/
+data/processed/
+data/staging/
+data/output/
+*.db
+*.sqlite
+*.duckdb
+
+# ========================
+# Logs & Monitoring
+# ========================
+*.log
+logs/
+*.log.*
+log/
+
+# ========================
+# Terraform / IaC
+# ========================
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraformrc
+terraform.rc
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ========================
+# Docker
+# ========================
+.dockerignore
+docker-compose.override.yml
+
+# ========================
+# IDE & OS
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# Node (if using any JS tooling)
+# ========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
