@@ -1,0 +1,29 @@
+{
+	"name": "ds_historical_raw_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_uberprojdl",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"f_name_write": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@{dataset().f_name_write}.json",
+					"type": "Expression"
+				},
+				"folderPath": "historical_rides",
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

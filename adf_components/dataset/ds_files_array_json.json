@@ -1,0 +1,20 @@
+{
+	"name": "ds_files_array_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_uberprojdl",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "files_array.json",
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

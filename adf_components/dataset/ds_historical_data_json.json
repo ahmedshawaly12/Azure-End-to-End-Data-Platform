@@ -1,0 +1,27 @@
+{
+	"name": "ds_historical_data_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_http_historical_data",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"f_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "anshlambagit/Uber_Data_Engineer_Project/refs/heads/main/Data/@{dataset().f_name}.json\n\n\n",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

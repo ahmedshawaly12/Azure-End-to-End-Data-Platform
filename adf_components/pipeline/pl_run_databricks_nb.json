@@ -1,0 +1,84 @@
+{
+	"name": "pl_run_databricks_nb",
+	"properties": {
+		"activities": [
+			{
+				"name": "load_process_new_events_to_silver",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/abdelrhmanaskr8@gmail.com/uber_proj/5_process_load_new_events_to_silver"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_uber_databricks_ws",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "silver_obt",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "load_process_new_events_to_silver",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/abdelrhmanaskr8@gmail.com/uber_proj/6_silver_OBT"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_uber_databricks_ws",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "silver_to_gold",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "silver_obt",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/abdelrhmanaskr8@gmail.com/uber_proj/7_create_star_schema_model"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_uber_databricks_ws",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-04-27T14:51:28Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
