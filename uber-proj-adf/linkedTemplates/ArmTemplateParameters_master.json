@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "uber-proj-adf"
+		},
+		"ls_adls_uberprojdl_accountKey": {
+			"value": ""
+		},
+		"ls_uber_databricks_ws_accessToken": {
+			"value": ""
+		},
+		"ls_adls_uberprojdl_properties_typeProperties_url": {
+			"value": "https://uberprojdl.dfs.core.windows.net/"
+		},
+		"ls_http_historical_data_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"ls_uber_databricks_ws_properties_typeProperties_existingClusterId": {
+			"value": "0425-142750-7gckb4iq"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

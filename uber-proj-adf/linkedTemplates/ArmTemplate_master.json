@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "uber-proj-adf"
+		},
+		"ls_adls_uberprojdl_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_uberprojdl'"
+		},
+		"ls_uber_databricks_ws_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_uber_databricks_ws'"
+		},
+		"ls_adls_uberprojdl_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://uberprojdl.dfs.core.windows.net/"
+		},
+		"ls_http_historical_data_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"ls_uber_databricks_ws_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0425-142750-7gckb4iq"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "uber-proj-adf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_adls_uberprojdl_accountKey": {
+						"value": "[parameters('ls_adls_uberprojdl_accountKey')]"
+					},
+					"ls_uber_databricks_ws_accessToken": {
+						"value": "[parameters('ls_uber_databricks_ws_accessToken')]"
+					},
+					"ls_adls_uberprojdl_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_uberprojdl_properties_typeProperties_url')]"
+					},
+					"ls_http_historical_data_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_historical_data_properties_typeProperties_url')]"
+					},
+					"ls_uber_databricks_ws_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('ls_uber_databricks_ws_properties_typeProperties_existingClusterId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
