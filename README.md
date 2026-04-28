@@ -1,6 +1,6 @@
 #  Azure End-to-End Data Platform
 
-An end-to-end data engineering platform built on **Microsoft Azure** that processes both **real-time streaming** and **batch historical** data. The platform transforms raw data through a **Medallion Architecture (Bronze → Silver → Gold)** and delivers business-ready insights for analytics and reporting.
+An end-to-end data engineering platform built on **Microsoft Azure** that processes both **real-time streaming** and **batch historical** data. The platform transforms raw data and streaming events through a **Medallion Architecture (Bronze → Silver → Gold)** and delivers business-ready insights for analytics and reporting.
 
 ---
 
@@ -84,7 +84,7 @@ A **metadata-driven pipeline** in Azure Data Factory handles all historical and 
 
 ---
 
-## 🔄 Transformation & Orchestration
+##  Transformation & Orchestration
 
 ### Databricks Notebook Pipeline
 
@@ -109,17 +109,17 @@ A top-level `pl_full` pipeline chains all sub-pipelines together:
 
 ---
 
-## 🏛️ Data Governance — Unity Catalog
+##  Data Governance — Unity Catalog
 
 Unity Catalog provides a unified governance layer across all data layers (`bronze`, `silver`, `gold`) within the `uber_catalog`.
 
 ### Data Lineage
 
-Full column-level lineage is tracked automatically. The screenshot below shows the lineage for `uber_catalog.silver.silver_obt`:
+Full column-level lineage is tracked automatically:
 
 ![Data Lineage](docs/data_lineage.png)
 
-Source tables (`bulk_rides`, `ride_events`, mapping tables) flow through the Silver OBT transformation into the final Gold dimension and fact tables.
+
 
 ---
 
